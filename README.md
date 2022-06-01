@@ -16,6 +16,11 @@ Las fechas han de mostrarse en formato dd/mm/aaaa.
 Se comprobará que el DNI tenga 9 caracteres.
 Se comprobará que el Nombre, Apellidos y ColorFavorito tengan al menos 3 caracteres.
 Se comprobará que la edad esté comprendida entre 0 y 125.
-El sexo ha de seleccionarse entre los valores Hombre, Mujer, Otro y No especificado.
+El sexo ha de seleccionarse entre los valores Hombre, Mujer, Otro
+
+
+![Web capture_1-6-2022_104613_localhost](https://user-images.githubusercontent.com/85968119/171371368-de4b61cc-b616-4738-9021-2bbcc5b7c485.jpeg)
+
+
 
 
