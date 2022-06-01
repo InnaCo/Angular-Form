@@ -1,0 +1,137 @@
+
+<div class="background">
+  <title>
+    <h2> Registrar un nuevo usuario </h2>
+  </title>
+  <p>
+    <mat-toolbar>
+      <span>Registrar un nuevo usuario </span>
+    </mat-toolbar>
+  </p>
+<form>
+  <div class="fixed">
+    <div class="box" style="background-color: rgb(120, 172, 218); position: relative; left: 5%;">
+
+        <p>
+          <mat-form-field apparence="legacy">
+            <mat-label>Nombre</mat-label>
+            <input style="color: black;" matInput [(ngModel)]="newUser.nombre" type="text" name="nombre" id="nombre" class="form-control"  #nombre="ngModel" minlength="3" required>
+            <div class="error" *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)">
+              <span *ngIf="nombre?.errors?.['required']" >Campo obligatorio.</span><br>
+              <span *ngIf="nombre?.errors?.['minlength']">Mínimo 3 caracteres</span>
+            </div>
+          </mat-form-field><br>
+
+          <mat-form-field apparence="legacy">
+            <mat-label>Apellidos</mat-label>
+            <input style="color: black;" matInput [(ngModel)]="newUser.apellidos" type="text" name="apellidos" id="apellidos" class="form-control" #apellidos="ngModel" minlength="3" required>
+            <div class="error" *ngIf="apellidos?.invalid && (apellidos?.dirty || apellidos?.touched)">
+              <span *ngIf="apellidos?.errors?.['required']">Campo obligatorio.</span><br>
+              <span *ngIf="apellidos?.errors?.['minlength']">Mínimo 3 caracteres</span>
+            </div>
+          </mat-form-field><br>
+
+          <mat-form-field apparence="legacy">
+            <mat-label>Edad</mat-label>
+            <input style="color: black;" matInput [(ngModel)]="newUser.edad" type="text" name="edad" id="edad" class="form-control" #edad="ngModel" pattern="^(?:[0-9]|[1-9][0-9]|1[01][0-9]|12[0-5])$" required>
+            <div class="error" *ngIf="edad?.invalid && (edad?.dirty || edad?.touched)">
+              <span *ngIf="edad?.errors?.['required']">Campo obligatorio.</span>
+              <span *ngIf="edad?.errors?.['pattern']">Minimo 0 & maximo 125.</span>
+            </div>
+          </mat-form-field><br>
+
+          <mat-form-field apparence="legacy">
+            <mat-label>DNI</mat-label>
+            <input style="color: black;" matInput [(ngModel)]="newUser.dni" type="text" name="dni" id="dni" class="form-control" #dni="ngModel" pattern="^\d{8}[a-zA-Z]$" required>
+            <div class="error" *ngIf="dni?.invalid && (dni?.dirty || dni?.touched)">
+              <span *ngIf="dni?.errors?.['required']">Campo obligatorio.</span>
+              <span *ngIf="dni?.errors?.['pattern']">DNI no valido.</span>
+            </div>
+          </mat-form-field><br>
+
+          <mat-form-field apparence="legacy">
+            <mat-label>Cumpleaños</mat-label>
+            <input style="color: black;" matInput [(ngModel)]="newUser.cumpleanos" type="date" name="cumpleanos" id="cumpleanos" class="form-control" #cumpleanos="ngModel" required>
+            <div class="error" *ngIf="cumpleanos?.invalid && (cumpleanos?.dirty || cumpleanos?.touched)">
+              <span *ngIf="cumpleanos?.errors?.['required']">Campo obligatorio.</span>
+            </div>
+          </mat-form-field><br>
+
+          <mat-form-field apparence="legacy">
+            <mat-label>Color Favorito</mat-label>
+            <input style="color: black;" matInput [(ngModel)]="newUser.colorFavorito" type="text" name="colorFavorito" id="colorFavorito" class="form-control" #colorFavorito="ngModel" minlength="3" required>
+            <div class="error" *ngIf="colorFavorito?.invalid && (colorFavorito?.dirty || colorFavorito?.touched)">
+              <span *ngIf="colorFavorito?.errors?.['required']">Campo obligatorio.</span><br>
+              <span *ngIf="colorFavorito?.errors?.['minlength']">Mínimo 3 caracteres</span>
+            </div>
+          </mat-form-field><br>
+
+          <mat-form-field apparence="legacy">
+            <mat-select matInput [(ngModel)]="newUser.sexo" type="text" name="sexo" id="sexo" class="form-control" placeholder="Sexo" #sexo="ngModel" required >
+              <mat-option value="Hombre">Hombre</mat-option>
+              <mat-option value="Mujer">Mujer</mat-option>
+              <mat-option value="Otro">Otro</mat-option>
+              <mat-option value="No especificado">No especificado</mat-option>
+
+            </mat-select>
+
+
+          </mat-form-field><br>
+
+        <p>
+          <button mat-raised-button color="primary" (click)="addUser()">Submit</button>
+        </p>
+
+</div>
+
+
+    <div class="box" style="position: relative;left: 5%;">
+
+        <mat-card>
+          <div>
+            <label><h3>User Records</h3></label><br><br>
+          </div>
+      <table mat-table #table [dataSource]="myDataArray" class="mat-elevation-z8" style="width: 700pt;">
+        <ng-container matColumnDef="nombre">
+          <mat-header-cell *matHeaderCellDef>Nombre</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.nombre}} </div></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="apellidos">
+          <mat-header-cell *matHeaderCellDef>Apellidos</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.apellidos}} </div></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="edad">
+          <mat-header-cell *matHeaderCellDef>Edad</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.edad}} </div></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="dni">
+          <mat-header-cell *matHeaderCellDef>Edad</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.dni}} </div></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="cumpleanos">
+          <mat-header-cell *matHeaderCellDef>Cumpleaños</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.cumpleanos}} </div></mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="colorFavorito">
+          <mat-header-cell *matHeaderCellDef>Color Favorito</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.colorFavorito}} </div></mat-cell>
+        <ng-container matColumnDef="sexo">
+          <mat-header-cell *matHeaderCellDef>Sexo</mat-header-cell>
+          <mat-cell *matCellDef="let user"><div> {{user.sexo}} </div></mat-cell>
+        </ng-container>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef>Actions </mat-header-cell>
+          <mat-cell *matCellDef="let user">
+            <button mat-button color="primary" (click)="openDialog(this.user)">Edit</button> |
+            <button mat-button color="warn" (click)="delete(this.user)">Delete</button>
+          </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+        <mat-row *matRowDef="let dataSource; columns: columnsToDisplay;"></mat-row>
+      </table>
+    </mat-card>
+    </div>
+
+  </div>
+

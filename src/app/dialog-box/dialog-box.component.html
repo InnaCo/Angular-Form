@@ -1,0 +1,37 @@
+<h1 mat-dialog-title>Modificar usuario</h1>
+<div mat-dialog-content>
+
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput [(ngModel)]="data.nombre">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Apellidos</mat-label>
+    <input matInput [(ngModel)]="data.apellidos">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Edad</mat-label>
+    <input matInput [(ngModel)]="data.edad">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>DNI</mat-label>
+    <input matInput [(ngModel)]="data.dni">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Cumpleaños</mat-label>
+    <input matInput [(ngModel)]="data.cumpleanos">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Color Favorito</mat-label>
+    <input matInput [(ngModel)]="data.colorFavorito">
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Sexo</mat-label>
+    <input matInput [(ngModel)]="data.sexo">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data.nombre" [mat-dialog-close]="data.apellidos" [mat-dialog-close]="data.edad" [mat-dialog-close]="data.dni" [mat-dialog-close]="data.cumpleanos" [mat-dialog-close]="data.colorFavorito" [mat-dialog-close]="data.sexo"
+             cdkFocusInitial>Update</button>
+</div>

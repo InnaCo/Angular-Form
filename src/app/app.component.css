@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.box {
+  float: left;
+  width: auto;
+  padding: 50px;
+}
+
+.fixed::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.content
+{
+  max-width: 500px;
+  margin: auto;
+  background-color: rgb(36, 79, 117);
+  padding: 2% 5%;
+}
+.background{
+  background-color:rgb(176, 212, 244);
+}
+
+
